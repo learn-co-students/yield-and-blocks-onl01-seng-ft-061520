@@ -5,17 +5,15 @@ def hello_t(array)
     i = 0
     while i < array.length
       yield array[i]
-      i = i + 1
+      i += 1
     end
     array
-  else  
-    puts "Hey! No block was given!"
+  else
+    puts 'Hey! No block was given!'
   end
 end
 
 # call your method here!
-hello_t(["Tim", "Tom", "Jim"]) do |name|
-  if name.start_with?("T")
-    puts "Hi, #{name}"
-  end
+hello_t %w[Tim Tom Jim] do |name|
+  puts "Hi, #{name}" if name.start_with?('T')
 end
